@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dosuyl设备系统检测</title>
+    <style>
+        /* 基础样式用于跳转前的短暂展示 */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            padding: 50px;
+        }
+        .loading {
+            font-size: 20px;
+            color: #333;
+        }
+    </style>
+    <script>
+        (function() {
+            var userAgent = navigator.userAgent;
+            var platform = navigator.platform;
+
+                 if (/Android/.test(userAgent)) {
+                window.location.href = 'shenzhishijieandroiddownload.html';
+            }
+            else if ((/iPad|iPhone|iPod/.test(userAgent) || 
+                    (platform === 'MacIntel' && navigator.maxTouchPoints > 1)) && 
+                    !window.MSStream) {
+                window.location.href = 'shenzhishijieiosdownload.html';
+            }
+            else if (/Mac OS X|Macintosh/.test(userAgent) && 
+                    !/iPad|iPhone|iPod/.test(userAgent)) {
+                window.location.href = 'shenzhishijiemacosdownload.html';
+            }
+            else if (/Win|Windows|Windows NT/.test(userAgent)) {
+                window.location.href = 'shenzhishijiewindowsdownload.html';
+            }
+            else if (/Linux/.test(userAgent) && !/Android/.test(userAgent)) {
+                window.location.href = 'shenzhishijielinuxdownload.html';
+            }
+            else {
+                window.location.href = 'shenzhishijieunknowndownload.html';
+            }
+        })();
+    </script>
+</head>
+<body>
+    <div class="loading">
+        正在检测您的系统，请稍后。
+    </div>
+</body>
+</html>
